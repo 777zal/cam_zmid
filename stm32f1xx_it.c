@@ -235,9 +235,9 @@ void TIM2_IRQHandler(void)
 			  cam_timer.seconds++;
 		  }
 		  else {
-			  cam_timer.seconds = 3;
+			  cam_timer.seconds = 0;
 			  cam_timer.minutes++;
-			  if(cam_timer.minutes == 3){
+			  if(cam_timer.minutes == 10){
 				  cam_timer.minutes = 0;
 				  cam_flag.timer_is_running = false;
 			  }
@@ -427,7 +427,7 @@ void USART2_IRQHandler(void)
 //			HAL_UART_Transmit(&huart1, buff, strlen(buff), 1);
 //			sprintf((char*)&buff, "package checksum : %x\r\n", checksum_n);
 //			HAL_UART_Transmit(&huart1, buff, strlen(buff), 1);
-			if((checksum_n == zmid_package.checksum) && (zmid_package.package_no == zmid_param.package_amount-1) && (zmid_param.camera_id == 0x01))
+			if((checksum_n == zmid_package.checksum) && (zmid_package.package_no == zmid_param.package_amount) && (zmid_param.camera_id == 0x01))
 			{
 //				sprintf((char*)&buff, "\r\ntransmit is done and valid!\r\n");
 //				HAL_UART_Transmit(&huart2, buff, strlen(buff), 1);

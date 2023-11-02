@@ -129,7 +129,7 @@ int main(void)
 	  switch(cam_state){
 	  case CAM1 :
 			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_SET);
+//			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_SET);
 			if(cam_flag.cam1_is_running == false){
 				cam_state = TIMER1;
 				cam_flag.timer_is_running = true;
@@ -140,7 +140,7 @@ int main(void)
 		  break;
 	  case TIMER1 :
 			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_SET);
+//			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_SET);
 		  if(cam_flag.timer_is_running == false) {
 //				HAL_TIM_Base_Stop_IT(&htim2);
 				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
@@ -153,8 +153,8 @@ int main(void)
 		  }
 		  break;
 	  case CAM2 :
-			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+//			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_RESET);
 			if(cam_flag.cam2_is_running == false){
 				cam_state = TIMER2;
 				cam_flag.timer_is_running = true;
@@ -164,8 +164,8 @@ int main(void)
 			}
 		  break;
 	  case TIMER2 :
-			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+//			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_RESET);
 		  if(cam_flag.timer_is_running == false) {
 //				HAL_TIM_Base_Stop_IT(&htim2);
 				HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
